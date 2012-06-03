@@ -21,16 +21,13 @@ jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir),
                                autoescape = True)
 
 def render_str(template, **params):
-    t = jinja_env.get_template(template)
-    return t.render(params)
+    pass
 
 def make_secure_val(val):
-    return '%s|%s' % (val, hmac.new(passwordkeysecret, val).hexdigest())
+    pass
 
 def check_secure_val(secure_val):
-    val = secure_val.split('|')[0]
-    if secure_val == make_secure_val(val):
-        return val
+    pass
 
 class BlogHandler(webapp2.RequestHandler):
     def write(self, *a, **kw):
@@ -50,10 +47,7 @@ class BlogHandler(webapp2.RequestHandler):
         self.write(json_txt)
 
     def set_secure_cookie(self, name, val):
-        cookie_val = make_secure_val(val)
-        self.response.headers.add_header(
-            'Set-Cookie',
-            '%s=%s; Path=/' % (name, cookie_val))
+        pass
 
     def read_secure_cookie(self, name):
         cookie_val = self.request.cookies.get(name)
@@ -83,20 +77,16 @@ class MainPage(BlogHandler):
 
 ##### user stuff
 def make_salt(length = 5):
-    return ''.join(random.choice(letters) for x in xrange(length))
+    pass
 
 def make_pw_hash(name, pw, salt = None):
-    if not salt:
-        salt = make_salt()
-    h = hashlib.sha256(name + pw + salt).hexdigest()
-    return '%s,%s' % (salt, h)
+    pass
 
 def valid_pw(name, password, h):
-    salt = h.split(',')[0]
-    return h == make_pw_hash(name, password, salt)
+    pass
 
 def users_key(group = 'default'):
-    return db.Key.from_path('users', group)
+    pass
 
 class User(db.Model):
     name = db.StringProperty(required = True)
@@ -332,7 +322,7 @@ class Register(Signup):
 
             self.login(u)
             if self.email:
-                message = mail.EmailMessage(sender="http://udacity-sam.appspot.com <samuel.masuy@gmail.com>",
+                message = mail.EmailMessage(sender="http://udacity-sam.appspot.com <x@gmail.com>",
                                 subject="Your account has been approved")
 
                 message.to = "%s <%s>"%(self.username, self.email)
