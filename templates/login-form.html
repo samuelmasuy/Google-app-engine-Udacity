@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<div id="stylized" class="myform">
+  <form method="post">
+    <h2>SignIn</h2>
+
+    <label for="username">Username</label>
+      <input type="text" id="username" name="username" value="{{username}}">
+
+    <label for="password">Password</label>
+      <input type="password" id="password" name="password">
+  
+    <br>
+    <label>Remember me</label>
+      <input type="checkbox" name="remember" value="remember"> 
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <input type="submit" value="Sign In!">
+    or <a href="/signup"> Sign up</a> 
+    <br>
+
+    <div class="spacer">{{error}}</div>
+  </form>
+</div>
+{% endblock %}

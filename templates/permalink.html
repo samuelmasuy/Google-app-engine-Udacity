@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {{post.render() | safe}}
+  <br><br>
+  <div class="age">
+    queried {{query_time}} seconds ago
+  </div>
+  {{yup}}
+  <br>
+  <br>
+  {{key}}
+{% endblock %}

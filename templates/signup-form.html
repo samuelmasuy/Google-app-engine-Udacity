@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block script %}
+<script src="/static/validation.js" type="text/javascript"></script>
+{% endblock %}
+
+{% block content %}
+
+<div id="stylized" class="myform">
+  <form method="post">
+    <h2>SignUp</h2>
+    
+    <label for="usr2">Username
+      <span id="usr1">{{error_username}}</span>
+    </label>
+      <input type="text" name="username" value="{{username}}" id="usr2" onkeyup="setTimeout('check_username()', 800);">
+
+    <label for="pass2">Password
+      <span id="pass1">{{error_password}}</span>
+    </label>
+      <input type="password" name="password" id="pass2" onkeyup="setTimeout('check_pass()', 800);">
+
+    <label for="verify2">Verify Password
+      <span id="verify1">{{error_verify}}</span>
+    </label>
+      <input type="password" name="verify" id="verify2" onkeyup="setTimeout('check_verify()', 1200);">
+    
+    <label for="email2">Email <span id="email-opt">(Optional)</span>
+      <span id="email1">{{error_email}}</span>
+    </label>
+      <input type="email" name="email" id="email2" value="{{email}}" onkeyup="setTimeout('check_email()', 1500);">
+
+    <br>
+    <input type="submit" id="register" value="Sign Up!">
+    <div class="spacer"></div>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  {% for p in post %}
+    {{ p.render() | safe }}
+    <br><br>
+  {% endfor %}
+  <br><br>
+  <div class="age">
+    queried {{query_time}} seconds ago
+  </div>
+
+{% endblock %}

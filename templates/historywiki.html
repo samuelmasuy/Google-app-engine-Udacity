@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  {% for p in post %}
+    <div class="post">
+	  <div class="post-heading">
+	    <a href="/wiki/_edit{{p.path}}?v={{p.key().id()}}" class="post-title">
+	      EDIT
+	    </a> &nbsp;&nbsp;|&nbsp;&nbsp;<a href="/wiki{{p.path}}?v={{p.key().id()}}" class="post-title">
+	      VIEW
+	    </a>
+
+	    <div class="post-date">
+	      {{p.created.strftime("%b %d, %Y")}}
+	    </div>
+	  </div>
+
+	  <div class="post-content">
+	    {{p.content}}
+	  </div>
+	  <br>
+	  <div class="user-post">
+	    By {{p.user_post}}
+	  </div>
+	</div>
+    <br><br>
+  {% endfor %}
+  <br><br>
+  <div class="age">
+    queried {{query_time}} seconds ago
+  </div>
+
+{% endblock %}
+
